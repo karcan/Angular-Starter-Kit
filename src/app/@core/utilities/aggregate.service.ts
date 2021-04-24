@@ -11,6 +11,10 @@ export class AggregateService{
     });
   }
 
+  /**
+   * @param array @example [5,10,25,40]
+   * @returns number
+   */
   min(array:any[]):number{
     return array.reduce((a,b)=>((b || 0) > (a || 0)) ? a : (b), array[0]);
   }
@@ -25,9 +29,9 @@ export class AggregateService{
   }
 
   /**
-     * @param arrayOfObjects @example [{number1: 5, number2: 10},{number1: 10, number2: 25}]
-     * @param propertyName @example 'number1'
-     * @returns number
+   * @param arrayOfObjects @example [{number1: 5, number2: 10},{number1: 10, number2: 25}]
+   * @param propertyName @example 'number1'
+   * @returns number
    */
   minByProperty(arrayOfObjects:any[],propertyName:string):number{
     return this.min(this.toArrayByProperty(arrayOfObjects,propertyName));
