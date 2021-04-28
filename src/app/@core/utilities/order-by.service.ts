@@ -5,13 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class OrderByService{
 
+  orderByAsc(array:any[]){
+    return array.sort();
+  }
+
+  orderByDesc(array:any[]){
+    return array.sort((a,b)=> b-a);
+  }
+
   /**
    *
    * @param array @example [{foo:'value1',bar:100},{foo:'value2',bar:50}]
    * @param keys {foo: 'asc', bar: 'desc'}
    * @returns ordered array
    */
-  OrderBy(array:any,keys:any):any{
+  orderByKeys(arrayOfObjects:any,keys:any):any{
 
     var obLen = function(obj:any) {
         var size = 0, key;
@@ -44,7 +52,7 @@ export class OrderByService{
     var KL = obLen(keys);
 
     if (!KL)
-        return array.sort(keySort);
+        return arrayOfObjects.sort(keySort);
 
     for ( var k in keys) {
         keys[k] =
@@ -53,7 +61,7 @@ export class OrderByService{
               : 1);
     }
 
-    array.sort(function(a:any, b:any) {
+    arrayOfObjects.sort(function(a:any, b:any) {
         var sorted = 0, ix = 0;
 
         while (sorted === 0 && ix < KL) {
@@ -67,7 +75,9 @@ export class OrderByService{
         return sorted;
     });
 
-    return array;
+    return arrayOfObjects;
 
   }
+
+
 }

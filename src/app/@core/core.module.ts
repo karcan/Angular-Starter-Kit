@@ -10,14 +10,23 @@ import { ProjectLayoutComponent } from "./layouts/project-layout/project-layout.
 import { EnsureModuleLoadedOnceGuard } from "./guards/ensure-module-loaded-once.guard";
 
 import { AggregateService } from './utilities';
-
+import { UserFooterComponent } from './components/footer/user-footer/user-footer.component';
+import { AdminFooterComponent } from './components/footer/admin-footer/admin-footer.component';
+import { UserHeaderComponent } from './components/header/user-header/user-header.component';
+import { AdminHeaderComponent } from './components/header/admin-header/admin-header.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 
 @NgModule({
   declarations: [
     ProjectLayoutComponent,
     AdminLayoutComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
+    UserFooterComponent,
+    AdminFooterComponent,
+    UserHeaderComponent,
+    AdminHeaderComponent,
+    ScrollToTopComponent,
   ],
   imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [HttpClientModule],
